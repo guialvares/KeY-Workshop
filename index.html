@@ -15,15 +15,13 @@
 	</head>
 	<body>
 		<div class="reveal">
-		<div class="slides">
-
-<section
-  data-markdown="presentation.md"
-  data-separator-vertical="^\n\n"
-  data-separator-notes="^Note:"
-  data-charset="iso-8859-15"
-> </section>
-
+			<div class="slides">
+				<section
+				data-markdown="presentation.md"
+				data-separator-vertical="^\n\n"
+				data-separator-notes="^Note:"
+				data-charset="iso-8859-15"
+				> </section>
 			</div>
 		</div>
 
@@ -32,21 +30,6 @@
 		<script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
 		<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
 
-		<script type="module">
-      import solidity from "./node_modules/highlightjs-solidity/dist/solidity.es.min.js";
-
-			Reveal.initialize({
-				hash: true,
-				defaultTiming: 120,
-				highlight: {
-					beforeHighlight: (hljs) => {
-						hljs.registerLanguage('solidity', solidity);
-					}
-				},
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
+		<script type="module" src="script.js"></script>
 	</body>
 </html>
