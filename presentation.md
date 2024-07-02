@@ -1,6 +1,7 @@
-# KeY Workshop
-Guilherme Horta Alvares da Silva
-
+---
+title: "KeY Workshop"
+author: "Guilherme Horta Alvares da Silva"
+format: revealjs
 ---
 
 ## Memory and storage
@@ -29,8 +30,6 @@ function f() {
 }
 ```
 
----
-
 ## Memory
 
 ```solidity [1,12|2-4|3,6-7|3,9-11]
@@ -48,14 +47,10 @@ function f(Person alice, Person bob) {
 }
 ```
 
----
-
 ## Defaults
 - Different from Java, Solidity has no nulls
 - Each variable is initialized with default values
 - The main challenge is how to axiomatize the heap to get the defaults lazily just when reading from the heap
-
----
 
 ## Storage
 
@@ -67,8 +62,6 @@ function f() {
 }
 ```
 
----
-
 ## Memory
 
 ```solidity [1,5|2|4]
@@ -78,5 +71,3 @@ function f() {
   assert(alice.account.balance == 0);
 }
 ```
-
-
