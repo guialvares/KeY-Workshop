@@ -9,7 +9,7 @@ format: revealjs
 - Memory is a temporary place to store data
 - Memory in Solidity is similar to Java where each arrays and structs are like pointers. They store identities.
 - In storage, each variable has its value. Every assignment is a deep copy.
-- In Solidity, there is storage path variable. It represents a path to a storage variable. 
+- In Solidity, there are storage path variables. It represents a path to a storage variable. 
 
 ---
 
