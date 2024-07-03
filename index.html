@@ -139,7 +139,7 @@ function f(Person memory alice, Person memory bob) {
 <section data-auto-animate>
 	<h5> acc <- bob.account </h5>
 <table data-id="tabM" class="intable">
-  <tr>
+  <tr style="color:chartreuse">
     <td>alice</td>
     <td>account</td>
     <td>alice.account</td>
@@ -173,7 +173,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-	<h5> acc <- bob.account </h5>
+	<h5 style="color:chartreuse"> acc <- bob.account </h5>
 
 <table data-id="tabM" class="intable">
   <tr>
@@ -191,7 +191,7 @@ function f() {
     <td>balance</td>
     <td>10</td>
   </tr>
-  <tr>
+  <tr style="color: chartreuse;">
     <td>bob.account</td>
     <td>balance</td>
     <td>20</td>
@@ -209,7 +209,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-	<h5> acc <- bob.account </h5>
+	<h5 style="color:chartreuse"> acc <- bob.account </h5>
 <table data-id="tabM" class="intable">
   <tr>
     <td>alice</td>
@@ -226,7 +226,7 @@ function f() {
     <td>balance</td>
     <td>10</td>
   </tr>
-  <tr>
+  <tr style="color:chartreuse">
     <td>bob.account</td>
     <td>balance</td>
     <td>20</td>
@@ -244,7 +244,7 @@ function f() {
 <section data-auto-animate>
 	<h5> acc <- bob.account </h5>
 	<table data-id="tabM" class="intable">
-		<tr>
+		<tr style="color:chartreuse">
 		  <td>alice</td>
 		  <td>account</td>
 		  <td>bob.account</td>
@@ -259,7 +259,7 @@ function f() {
 		  <td>balance</td>
 		  <td>10</td>
 		</tr>
-		<tr>
+		<tr style="color:chartreuse">
 		  <td>bob.account</td>
 		  <td>balance</td>
 		  <td>30</td>
@@ -273,6 +273,37 @@ function f() {
 	</code></pre>
 </section>
 
+
+<section data-auto-animate>
+	<h5> acc <- bob.account </h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>account</td>
+		  <td>bob.account</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td>bob</td>
+		  <td>account</td>
+		  <td>bob.account</td>
+		</tr>
+		<tr>
+		  <td>alice.account</td>
+		  <td>balance</td>
+		  <td>10</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td>bob.account</td>
+		  <td>balance</td>
+		  <td>30</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+function f() {
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
 			</div>
 		</div>
 
