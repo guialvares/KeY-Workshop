@@ -31,7 +31,7 @@
 
 <section data-auto-animate>
 	<h3> Storage </h3>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2-4" class="solidity">
 function f() {
 	alice.account.balance = 10;
 	bob.account.balance = 20;
@@ -59,9 +59,32 @@ function f() {
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
 	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> acc <- alice.account </h5>
+<table data-id="tab" class="intable">
+  <tr>
+    <td>alice.account</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>20</td>
+  </tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
 	assert(acc.balance == 20);
 
 	acc.balance = 30;
@@ -83,7 +106,7 @@ function f() {
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
 	acc.balance = 30;
 	assert(alice.account.balance == 30);
@@ -104,6 +127,31 @@ function f() {
     <td>20</td>
   </tr>
 </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> acc <- alice.account </h5>
+<table data-id="tab" class="intable">
+  <tr>
+    <td>alice.account</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>20</td>
+  </tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
 </section>
 
 <section data-auto-animate>
