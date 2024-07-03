@@ -31,10 +31,10 @@ function f() {
 ## Memory
 
 ```solidity [1,12|2-4|3,6-7|3,9-11]
-function f(Person alice, Person bob) {
+function f(Person memory alice, Person memory bob) {
 	alice.account.balance = 10;
 	bob.account.balance = 20;
-	Account memory acc = alice.account;
+	Account memory acc = bob.account;
 
 	alice.account = bob.account;
 	assert(acc.balance == 20);

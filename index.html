@@ -55,7 +55,7 @@ function f() {
     <td>10</td>
   </tr>
   <tr>
-    <td>bob.storage</td>
+    <td>bob.account</td>
     <td>20</td>
   </tr>
 </table>
@@ -79,7 +79,7 @@ function f() {
     <td>20</td>
   </tr>
   <tr>
-    <td>bob.storage</td>
+    <td>bob.account</td>
     <td>20</td>
   </tr>
 </table>
@@ -100,11 +100,95 @@ function f() {
     <td>30</td>
   </tr>
   <tr>
-    <td>bob.storage</td>
+    <td>bob.account</td>
     <td>20</td>
   </tr>
 </table>
 </section>
+
+<section data-auto-animate>
+	<h3> Memory </h3>
+	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+function f(Person memory alice, Person memory bob) {
+	alice.account.balance = 10;
+	bob.account.balance = 20;
+	Account memory acc = bob.account;
+
+	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> acc <- bob.account </h5>
+<table data-id="tab" class="intable">
+  <tr>
+    <td>alice.account</td>
+    <td>alice.account</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>bob.account</td>
+    <td>20</td>
+  </tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+function f() {
+	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> acc <- bob.account </h5>
+<table data-id="tab" class="intable">
+  <tr>
+    <td>alice.account</td>
+    <td>bob.account</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>bob.account</td>
+    <td>20</td>
+  </tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+function f() {
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> acc <- bob.account </h5>
+<table data-id="tab" class="intable">
+  <tr>
+    <td>alice.account</td>
+    <td>bob.account</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>bob.account</td>
+    <td>30</td>
+  </tr>
+</table>
+</section>
+
 			</div>
 		</div>
 
