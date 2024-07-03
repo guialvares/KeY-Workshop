@@ -120,7 +120,7 @@ function f() {
     <td>bob.account</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2-4" class="solidity">
 function f(Person memory alice, Person memory bob) {
 	alice.account.balance = 10;
 	bob.account.balance = 20;
@@ -160,8 +160,8 @@ function f(Person memory alice, Person memory bob) {
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
-function f() {
+	<pre data-id="code-animation"><code data-trim data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
 	alice.account = bob.account;
 	assert(acc.balance == 20);
 
@@ -197,8 +197,8 @@ function f() {
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
-function f() {
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
 	assert(acc.balance == 20);
 
 	acc.balance = 30;
@@ -232,8 +232,8 @@ function f() {
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
-function f() {
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
 	acc.balance = 30;
 	assert(alice.account.balance == 30);
 	assert(bob.account.balance   == 30);
@@ -265,8 +265,8 @@ function f() {
 		  <td>30</td>
 		</tr>
 	  </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
-function f() {
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
 	assert(alice.account.balance == 30);
 	assert(bob.account.balance   == 30);
 }
@@ -298,8 +298,8 @@ function f() {
 		  <td>30</td>
 		</tr>
 	  </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
-function f() {
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
 	assert(bob.account.balance   == 30);
 }
 	</code></pre>
