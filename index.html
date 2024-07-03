@@ -107,7 +107,6 @@ function f() {
 </section>
 
 <section data-auto-animate>
-	<h3> Memory </h3>
 <table data-id="tabM" class="intable">
   <tr>
     <td>alice</td>
@@ -118,6 +117,18 @@ function f() {
     <td>bob</td>
     <td>account</td>
     <td>bob.account</td>
+  <tr>
+    <td>alice.account</td>
+    <td>balance</td>
+	<td></td>
+	<td>10</td>
+  </tr>
+  <tr>
+    <td>bob.account</td>
+    <td>balance</td>
+	<td></td>
+	<td>20</td>
+  </tr>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2-4" class="solidity">
@@ -143,21 +154,25 @@ function f(Person memory alice, Person memory bob) {
     <td>alice</td>
     <td>account</td>
     <td>alice.account</td>
+    <td>bob.account</td>
   </tr>
   <tr>
     <td>bob</td>
     <td>account</td>
     <td>bob.account</td>
+	<td></td>
   </tr>
   <tr>
     <td>alice.account</td>
     <td>balance</td>
     <td>10</td>
+	<td></td>
   </tr>
   <tr>
     <td>bob.account</td>
     <td>balance</td>
     <td>20</td>
+	<td></td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-trim data-line-numbers="2" class="solidity">
@@ -230,6 +245,7 @@ function f(Person memory alice, Person memory bob) {
     <td>bob.account</td>
     <td>balance</td>
     <td>20</td>
+    <td>30</td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -247,7 +263,7 @@ function f(Person memory alice, Person memory bob) {
 		<tr style="color:chartreuse">
 		  <td>alice</td>
 		  <td>account</td>
-		  <td>bob.account</td>
+		  <td style="color: orange;">bob.account</td>
 		</tr>
 		<tr>
 		  <td>bob</td>
@@ -260,7 +276,7 @@ function f(Person memory alice, Person memory bob) {
 		  <td>10</td>
 		</tr>
 		<tr style="color:chartreuse">
-		  <td>bob.account</td>
+		  <td style="color: orange;">bob.account</td>
 		  <td>balance</td>
 		  <td>30</td>
 		</tr>
@@ -285,7 +301,7 @@ function f(Person memory alice, Person memory bob) {
 		<tr style="color:chartreuse">
 		  <td>bob</td>
 		  <td>account</td>
-		  <td>bob.account</td>
+		  <td style="color: orange;">bob.account</td>
 		</tr>
 		<tr>
 		  <td>alice.account</td>
@@ -293,7 +309,7 @@ function f(Person memory alice, Person memory bob) {
 		  <td>10</td>
 		</tr>
 		<tr style="color:chartreuse">
-		  <td>bob.account</td>
+		  <td style="color: orange;">bob.account</td>
 		  <td>balance</td>
 		  <td>30</td>
 		</tr>
