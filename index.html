@@ -599,16 +599,43 @@ function f() {
 	</section>
 
 	<section data-auto-animate>
-	<div data-id="aliceNeqBob">\[ \text{alice} \neq \text{bob} \]</div>
+	<div data-id="aliceNeqBob">\[ \textcolor{aqua}{\text{alice}} \neq \textcolor{red}{\text{bob}} \]</div>
+	<h5 style="color:chartreuse">aAcc <- <span style="color:orange"><span style="color:aqua">alice</span>:account</span> </h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td></td>
+		  <td data-id="alice" >alice</td>
+		  <td data-id="new">new</td>
+		</tr>
+		<tr>
+		  <td class="katex" data-id="arrow" > $ \Rightarrow $ </td>
+		  <td data-id="bob" style="color: red;">bob</td>
+		  <td data-id="new">new</td>
+		  <td data-id="aliceR" class="katex">$ \textcolor{aqua}{\text{alice}}\textcolor{orange}{\text{:account}} $</td>
+		  <td data-id="balance" style="color:orange">balance</td>
+		</tr>
+	  </table>
+		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+  assert(aAcc.balance == 0);
+}
+		</code></pre>
+	</section>
+
+	<section data-auto-animate>
 	<h5 style="color:chartreuse">aAcc <- <span style="color:orange">alice</span>:account</h5>
 	<table data-id="tabM" class="intable">
 		<tr>
-		  <td style="color:orange" >alice</td>
-		  <td>new</td>
+		  <td class="katex" data-id="arrow" > $ \Rightarrow $ </td>
+		  <td style="color:orange" data-id="alice" >alice</td>
+		  <td data-id="new">new</td>
+		  <td data-id="aliceR" class="katex">$ \textcolor{orange}{\text{alice}}\textcolor{chartreuse}{\text{:account}} $</td>
+		  <td data-id="balance">balance</td>
 		</tr>
 		<tr>
-		  <td>bob</td>
-		  <td>new</td>
+		  <td></td>
+		  <td data-id="bob">bob</td>
+		  <td data-id="new">new</td>
 		</tr>
 	  </table>
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
