@@ -174,20 +174,20 @@ function f() {
   <tr>
     <td>alice</td>
     <td>account</td>
-    <td>alice.account</td>
+    <td>alice:account</td>
   </tr>
   <tr>
     <td>bob</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
   <tr>
-    <td>alice.account</td>
+    <td>alice:account</td>
     <td>balance</td>
 	<td></td>
 	<td>10</td>
   </tr>
   <tr>
-    <td>bob.account</td>
+    <td>bob:account</td>
     <td>balance</td>
 	<td></td>
 	<td>20</td>
@@ -211,28 +211,28 @@ function f(Person memory alice, Person memory bob) {
 </section>
 
 <section data-auto-animate>
-	<h5> acc <- bob.account </h5>
+	<h5> acc <- bob:account </h5>
 <table data-id="tabM" class="intable">
   <tr style="color:chartreuse">
     <td>alice</td>
     <td>account</td>
-    <td>alice.account</td>
-    <td>bob.account</td>
+    <td>alice:account</td>
+    <td>bob:account</td>
   </tr>
   <tr>
     <td>bob</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
 	<td></td>
   </tr>
   <tr>
-    <td>alice.account</td>
+    <td>alice:account</td>
     <td>balance</td>
     <td>10</td>
 	<td></td>
   </tr>
   <tr>
-    <td>bob.account</td>
+    <td>bob:account</td>
     <td>balance</td>
     <td>20</td>
 	<td></td>
@@ -251,26 +251,26 @@ function f(Person memory alice, Person memory bob) {
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:chartreuse"> acc <- bob.account </h5>
+	<h5 style="color:chartreuse"> acc <- bob:account </h5>
 
 <table data-id="tabM" class="intable">
   <tr>
     <td>alice</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
   </tr>
   <tr>
     <td>bob</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
   </tr>
   <tr>
-    <td>alice.account</td>
+    <td>alice:account</td>
     <td>balance</td>
     <td>10</td>
   </tr>
   <tr style="color: chartreuse;">
-    <td>bob.account</td>
+    <td>bob:account</td>
     <td>balance</td>
     <td>20</td>
   </tr>
@@ -287,25 +287,25 @@ function f(Person memory alice, Person memory bob) {
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:chartreuse"> acc <- bob.account </h5>
+	<h5 style="color:chartreuse"> acc <- bob:account </h5>
 <table data-id="tabM" class="intable">
   <tr>
     <td>alice</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
   </tr>
   <tr>
     <td>bob</td>
     <td>account</td>
-    <td>bob.account</td>
+    <td>bob:account</td>
   </tr>
   <tr>
-    <td>alice.account</td>
+    <td>alice:account</td>
     <td>balance</td>
     <td>10</td>
   </tr>
   <tr style="color:chartreuse">
-    <td>bob.account</td>
+    <td>bob:account</td>
     <td>balance</td>
     <td>20</td>
     <td>30</td>
@@ -321,25 +321,24 @@ function f(Person memory alice, Person memory bob) {
 </section>
 
 <section data-auto-animate>
-	<h5> acc <- bob.account </h5>
 	<table data-id="tabM" class="intable">
 		<tr style="color:chartreuse">
 		  <td>alice</td>
 		  <td>account</td>
-		  <td style="color: orange;">bob.account</td>
+		  <td style="color: orange;">bob:account</td>
 		</tr>
 		<tr>
 		  <td>bob</td>
 		  <td>account</td>
-		  <td>bob.account</td>
+		  <td>bob:account</td>
 		</tr>
 		<tr>
-		  <td>alice.account</td>
+		  <td>alice:account</td>
 		  <td>balance</td>
 		  <td>10</td>
 		</tr>
 		<tr style="color:chartreuse">
-		  <td style="color: orange;">bob.account</td>
+		  <td style="color: orange;">bob:account</td>
 		  <td>balance</td>
 		  <td>30</td>
 		</tr>
@@ -352,27 +351,90 @@ function f(Person memory alice, Person memory bob) {
 	</code></pre>
 </section>
 
+<section data-auto-animate>
+	<h5 style="color:orange"> aacc <- bob:account </h5>
+	<table data-id="tabM" class="intable">
+		<tr style="color:chartreuse">
+		  <td>alice</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr>
+		  <td>bob</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr>
+		  <td>alice:account</td>
+		  <td>balance</td>
+		  <td>10</td>
+		</tr>
+		<tr>
+		  <td>bob:account</td>
+		  <td>balance</td>
+		  <td>30</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
+	Account memory aAcc = alice.account;
+	assert(aAcc.balance == 30);
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
 
 <section data-auto-animate>
-	<h5> acc <- bob.account </h5>
+	<h5 style="color:chartreuse"> aAcc <- <span style="color:orange">bob:account</span> </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
 		  <td>account</td>
-		  <td>bob.account</td>
-		</tr>
-		<tr style="color:chartreuse">
-		  <td>bob</td>
-		  <td>account</td>
-		  <td style="color: orange;">bob.account</td>
+		  <td>bob:account</td>
 		</tr>
 		<tr>
-		  <td>alice.account</td>
+		  <td>bob</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr>
+		  <td>alice:account</td>
 		  <td>balance</td>
 		  <td>10</td>
 		</tr>
 		<tr style="color:chartreuse">
-		  <td style="color: orange;">bob.account</td>
+		  <td style="color:orange">bob:account</td>
+		  <td>balance</td>
+		  <td>30</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f(Person memory alice, Person memory bob) {
+	assert(aAcc.balance == 30);
+	assert(bob.account.balance   == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td>bob</td>
+		  <td>account</td>
+		  <td style="color: orange;">bob:account</td>
+		</tr>
+		<tr>
+		  <td>alice:account</td>
+		  <td>balance</td>
+		  <td>10</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td style="color: orange;">bob:account</td>
 		  <td>balance</td>
 		  <td>30</td>
 		</tr>
@@ -383,6 +445,71 @@ function f(Person memory alice, Person memory bob) {
 }
 	</code></pre>
 </section>
+
+<section data-auto-animate>
+	<h5 style="color:orange"> bAcc <- bob:account </h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td>bob</td>
+		  <td>account</td>
+		  <td style="color: orange;">bob:account</td>
+		</tr>
+		<tr>
+		  <td>alice:account</td>
+		  <td>balance</td>
+		  <td>10</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td style="color: orange;">bob:account</td>
+		  <td>balance</td>
+		  <td>30</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f(Person memory alice, Person memory bob) {
+	Account memory bAcc = bob.account;
+	assert(bAcc.balance   == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 style="color:chartreuse"> bAcc <- <span style="color:orange">bob:account</span> </h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr>
+		  <td>bob</td>
+		  <td>account</td>
+		  <td>bob:account</td>
+		</tr>
+		<tr>
+		  <td>alice:account</td>
+		  <td>balance</td>
+		  <td>10</td>
+		</tr>
+		<tr style="color:chartreuse">
+		  <td style="color: orange;">bob:account</td>
+		  <td>balance</td>
+		  <td>30</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f(Person memory alice, Person memory bob) {
+	assert(bAcc.balance   == 30);
+}
+	</code></pre>
+</section>
+
+
 </section>
 
 <section data-markdown="presentation-middle.md" 
