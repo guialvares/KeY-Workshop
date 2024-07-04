@@ -534,15 +534,37 @@ function f() {
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
   Person memory alice = new Person();
+  Person memory bob = new Person();
+
+  assert(alice.account.balance == 0);
+}
+		</code></pre>
+	</section>
+
+	<section data-auto-animate> 
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>new</td>
+		</tr>
+	  </table>
+		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+  Person memory bob = new Person();
 
   assert(alice.account.balance == 0);
 }
 		</code></pre>
 	</section>
 	<section data-auto-animate>
+	<h5>alice =/= bob</h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
+		  <td>new</td>
+		</tr>
+		<tr>
+		  <td>bob</td>
 		  <td>new</td>
 		</tr>
 	  </table>
@@ -553,10 +575,15 @@ function f() {
 		</code></pre>
 	</section>
 	<section data-auto-animate>
+	<h5>alice =/= bob</h5>
 	<h5 style="color:orange"> aAcc <- alice:account </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
+		  <td>new</td>
+		</tr>
+		<tr>
+		  <td>bob</td>
 		  <td>new</td>
 		</tr>
 	  </table>
@@ -569,10 +596,15 @@ function f() {
 	</section>
 
 	<section data-auto-animate>
+	<h5>alice =/= bob</h5>
 	<h5 style="color:chartreuse"> aAcc <- <span style="color:orange">alice</span>:account </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td style="color:orange" >alice</td>
+		  <td>new</td>
+		</tr>
+		<tr>
+		  <td>bob</td>
 		  <td>new</td>
 		</tr>
 	  </table>
