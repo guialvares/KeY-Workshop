@@ -509,7 +509,6 @@ function f(Person memory alice, Person memory bob) {
 	</code></pre>
 </section>
 
-
 </section>
 
 <section data-markdown="presentation-middle.md" 
@@ -517,6 +516,28 @@ function f(Person memory alice, Person memory bob) {
 	data-separator-notes="^Note:"
 	data-charset="iso-8859-15" >
 </section>
+
+<section> <section>
+	<h3> Storage </h3>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="1,5|2|4" class="solidity">
+function f() {
+	alice = new Person();
+
+	assert(alice.account.balance == 0);
+}
+	</code></pre>
+</section></section>
+
+<section> <section>
+	<h3> Memory </h3>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="1,5|2|4" class="solidity">
+function f() {
+  Person memory alice = new Person();
+
+  assert(alice.account.balance == 0);
+}
+	</code></pre>
+</section></section>
 
 			</div>
 		</div>
