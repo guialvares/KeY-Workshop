@@ -32,12 +32,73 @@
 			</section>
 
 <section>
+
 <section data-auto-animate>
 	<h3> Storage </h3>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	alice.account.balance = 10;
+	bob.account.balance = 20;
+	Account storage acc = alice.account;
+
+	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 style="color:chartreuse"> aAcc <- alice.account </h5>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	Account storage aAcc = alice.account;
+	aAcc.balance = 10;
+	bob.account.balance = 20;
+	Account storage acc = alice.account;
+
+	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5> aAcc <- alice.account </h5>
+	<table data-id="tab" class="intable">
+	<tr style="color:chartreuse" data-id="aliceT">
+		<td>alice.account.balance</td>
+		<td></td>
+		<td>10</td>
+	</tr>
+	</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	aAcc.balance = 10;
+	bob.account.balance = 20;
+	Account storage acc = alice.account;
+
+	alice.account = bob.account;
+	assert(acc.balance == 20);
+
+	acc.balance = 30;
+	assert(alice.account.balance == 30);
+	assert(bob.account.balance   == 20);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
 <table data-id="tab" class="intable">
-  <tr style="color:chartreuse">
+  <tr data-id="aliceT">
     <td>alice.account.balance</td>
-    <td></td>
     <td>10</td>
   </tr>
   <tr style="color:chartreuse">
@@ -46,9 +107,8 @@
     <td>20</td>
   </tr>
 </table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2-4" class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2-3" class="solidity">
 function f() {
-	alice.account.balance = 10;
 	bob.account.balance = 20;
 	Account storage acc = alice.account;
 
