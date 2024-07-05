@@ -585,16 +585,64 @@ function f(Person memory alice, Person memory bob) {
 	data-charset="iso-8859-15" >
 </section>
 
-<section> <section>
+<section>
+<section data-auto-animate>
 	<h3> Storage </h3>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="1,5|2|4" class="solidity">
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
 	alice = new Person();
 
 	assert(alice.account.balance == 0);
 }
 	</code></pre>
-</section></section>
+</section>
+
+<section data-auto-animate>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>new</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(alice.account.balance == 0);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 data-id="aAcc" style="color: chartreuse;">\[ \text{aAcc} \leftarrow \text{alice:account} \]</h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td>alice</td>
+		  <td>new</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	Account storage aAcc = alice.account;
+	assert(aAcc.balance == 0);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 data-id="aAcc">\[ \text{aAcc} \leftarrow \textcolor{orange}{\text{alice}}\text{:account} \]</h5>
+	<table data-id="tabM" class="intable">
+		<tr>
+		  <td style="color: orange;">alice</td>
+		  <td>new</td>
+		</tr>
+	  </table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(aAcc.balance == 0);
+}
+	</code></pre>
+</section>
+
+</section>
 
 <section> 
 	<section data-auto-animate> 
