@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "highlightjs-solidity": "^2.0.6",
+    "katex": "^0.16.11",
     "reveal.js": "^5.1.0"
   }
 }

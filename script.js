@@ -8,6 +8,9 @@ Reveal.initialize({
             hljs.registerLanguage('solidity', solidity);
         }
     },
+    katex: {
+        local: 'node_modules/katex',
+    },
 
     // Learn about plugins: https://revealjs.com/plugins/
     plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
