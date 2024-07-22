@@ -1106,11 +1106,18 @@ function f() {
 <section>
 <section data-auto-animate>
 	<h3> Storage </h3>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	alice = new Person();
+	<pre data-id="code-animation"><code data-trim data-line-numbers class="solidity">
+contract PersonStorage {
+    struct Account {
+        int balance;
+    }
+    struct Person {
+        Account account;
+    }
 
-	assert(alice.account.balance == 0);
+    function f() {
+        assert(alice.account.balance == 0);
+    }
 }
 	</code></pre>
 </section>
@@ -1130,7 +1137,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-	<h5 data-id="aAcc" style="color: chartreuse;">\[ \text{aAcc} \leftarrow \text{alice:account} \]</h5>
+	<h5 data-id="aAcc" style="color: chartreuse;">\[ a_1 \leftarrow \text{alice:account} \]</h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
@@ -1139,14 +1146,14 @@ function f() {
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-	Account storage aAcc = alice.account;
-	assert(aAcc.balance == 0);
+	Account storage a1 = alice.account;
+	assert(a1.balance == 0);
 }
 	</code></pre>
 </section>
 
 <section data-auto-animate>
-	<h5 data-id="aAcc">\[ \text{aAcc} \leftarrow \textcolor{orange}{\text{alice}}\text{:account} \]</h5>
+	<h5 data-id="aAcc">\[ a_1 \leftarrow \textcolor{orange}{\text{alice}}\text{:account} \]</h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td style="color: orange;">alice</td>
@@ -1155,7 +1162,7 @@ function f() {
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-	assert(aAcc.balance == 0);
+	assert(a1.balance == 0);
 }
 	</code></pre>
 </section>
@@ -1167,8 +1174,8 @@ function f() {
 		<h3> Memory </h3>
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-  Person memory alice = new Person();
-  Person memory bob = new Person();
+  Person memory alice;
+  Person memory bob;
 
   assert(alice.account.balance == 0);
 }
@@ -1210,7 +1217,7 @@ function f() {
 	</section>
 	<section data-auto-animate>
 	<div data-id="aliceNeqBob">\[ \text{alice} \neq \text{bob} \]</div>
-	<h5 style="color:orange"> aAcc $\leftarrow$ alice:account </h5>
+	<h5 style="color:orange"> $a_1 \leftarrow$ alice:account </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
@@ -1223,15 +1230,15 @@ function f() {
 	  </table>
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-  Account storage aAcc = alice.account;
-  assert(aAcc.balance == 0);
+  Account storage a1 = alice.account;
+  assert(a1.balance == 0);
 }
 		</code></pre>
 	</section>
 
 	<section data-auto-animate>
 	<div data-id="aliceNeqBob">\[ \textcolor{aqua}{\text{alice}} \neq \textcolor{red}{\text{bob}} \]</div>
-	<h5 style="color:chartreuse" class="katex">aAcc $\leftarrow$ <span style="color:chartreuse"><span style="color:aqua">alice</span>:account</h5>
+	<h5 style="color:chartreuse" class="katex">$a_1 \leftarrow$ <span style="color:chartreuse"><span style="color:aqua">alice</span>:account</h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td></td>
@@ -1248,14 +1255,14 @@ function f() {
 	  </table>
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-  assert(aAcc.balance == 0);
+  assert(a1.balance == 0);
 }
 		</code></pre>
 	</section>
 
 	<section data-auto-animate>
 	<div data-id="aliceNeqBob">\[ \textcolor{aqua}{\text{alice}} \neq \text{bob} \]</div>
-	<h5 style="color:chartreuse" class="katex">aAcc $\leftarrow$ <span style="color:aqua">alice</span>:account</h5>
+	<h5 style="color:chartreuse" class="katex">$a_1 \leftarrow$ <span style="color:aqua">alice</span>:account</h5>
 	<table class="intable">
 		<tr>
 		  <td class="katex" data-id="arrow" > $ \Rightarrow $ </td>
@@ -1272,7 +1279,7 @@ function f() {
 	  </table>
 		<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
 function f() {
-  assert(aAcc.balance == 0);
+  assert(a1.balance == 0);
 }
 		</code></pre>
 	</section>
