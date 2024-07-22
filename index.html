@@ -32,7 +32,6 @@
 			</section>
 
 <section>
-
 <section data-auto-animate>
 	<h3> Storage Deep Copy </h3>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -208,6 +207,332 @@ function f() {
 	</code></pre>
 </section>
 	
+</section>
+
+<section>
+<section data-auto-animate>
+	<h3> Memory Shallow Copy </h3>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	Person memory alice;
+	Person memory bob;
+
+	alice.account.balance = 10;
+	bob.account.balance = 20;
+
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	alice.account.balance = 10;
+	bob.account.balance = 20;
+
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	Account a1 = alice.account;
+	a1.balance = 10;
+	bob.account.balance = 20;
+
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+	<h5 class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
+<table data-id="tab" class="intable">
+<tr style="color:chartreuse" data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	a1.balance = 10;
+	bob.account.balance = 20;
+
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr style="color:chartreuse" data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	bob.account.balance = 20;
+
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr data-id="aliceAcc" style="color: chartreuse;">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	alice.account = bob.account;
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(alice.account.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ bob:account </h5>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr style="color:chartreuse" data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	Account memory a1 = alice.account;
+	assert(a1.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ bob:account </h5>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr style="color:chartreuse"  data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	assert(a1.balance == 20);
+
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
+function f() {
+	alice.account.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ bob:account </h5>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+</tr>
+<tr style="color:chartreuse" data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	Account memory a2 = alice.account;
+	a2.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ bob:account </h5>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr style="color:chartreuse" data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>20</td>
+	<td>30</td>
+</tr>
+<tr data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	a2.balance = 30;
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
+<section data-auto-animate>
+<table data-id="tab" class="intable">
+<tr data-id="aliceT">
+	<td>alice:account</td>
+	<td>balance</td>
+	<td>10</td>
+</tr>
+<tr style="color:chartreuse" data-id="bobT">
+	<td>bob:account</td>
+	<td>balance</td>
+	<td>30</td>
+</tr>
+<tr data-id="aliceAcc">
+	<td>alice</td>
+	<td>account</td>
+	<td>bob:account</td>
+</tr>
+</table>
+	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
+function f() {
+	assert(bob.account.balance == 30);
+}
+	</code></pre>
+</section>
+
 </section>
 
 <section>
@@ -749,333 +1074,6 @@ function f(Person memory alice, Person memory bob) {
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
 function f(Person memory alice, Person memory bob) {
 	assert(bAcc.balance   == 30);
-}
-	</code></pre>
-</section>
-
-</section>
-
-<section data-auto-animate>
-
-<section data-auto-animate>
-	<h3> Memory Shallow Copy </h3>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	Person memory alice;
-	Person memory bob;
-
-	alice.account.balance = 10;
-	bob.account.balance = 20;
-
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	alice.account.balance = 10;
-	bob.account.balance = 20;
-
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-	<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	Account a1 = alice.account;
-	a1.balance = 10;
-	bob.account.balance = 20;
-
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-	<h5 class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
-<table data-id="tab" class="intable">
-<tr style="color:chartreuse" data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	a1.balance = 10;
-	bob.account.balance = 20;
-
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr style="color:chartreuse" data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	bob.account.balance = 20;
-
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr data-id="aliceAcc" style="color: chartreuse;">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	alice.account = bob.account;
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	assert(alice.account.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ bob:account </h5>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr style="color:chartreuse" data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	Account memory a1 = alice.account;
-	assert(a1.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ bob:account </h5>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr style="color:chartreuse"  data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	assert(a1.balance == 20);
-
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f() {
-	alice.account.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ bob:account </h5>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-</tr>
-<tr style="color:chartreuse" data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	Account memory a2 = alice.account;
-	a2.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ bob:account </h5>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr style="color:chartreuse" data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>20</td>
-	<td>30</td>
-</tr>
-<tr data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	a2.balance = 30;
-	assert(bob.account.balance == 30);
-}
-	</code></pre>
-</section>
-
-<section data-auto-animate>
-<table data-id="tab" class="intable">
-<tr data-id="aliceT">
-	<td>alice:account</td>
-	<td>balance</td>
-	<td>10</td>
-</tr>
-<tr style="color:chartreuse" data-id="bobT">
-	<td>bob:account</td>
-	<td>balance</td>
-	<td>30</td>
-</tr>
-<tr data-id="aliceAcc">
-	<td>alice</td>
-	<td>account</td>
-	<td>bob:account</td>
-</tr>
-</table>
-	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f() {
-	assert(bob.account.balance == 30);
 }
 	</code></pre>
 </section>
