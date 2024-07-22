@@ -739,6 +739,25 @@ function f() {
 
 <section>
 <section data-auto-animate>
+    <pre data-id="code-animation"><code data-trim data-line-numbers="2-3" class="solidity">
+function f() {
+    Person memory alice;
+    Person memory bob;
+    alice.account.balance = 10;
+    bob.account.balance = 20;
+    Account memory acc = bob.account;
+
+    alice.account = bob.account;
+    assert(acc.balance == 20);
+
+    acc.balance = 30;
+    assert(alice.account.balance == 30);
+    assert(bob.account.balance   == 30);
+}
+    </code></pre>
+</section>
+
+<section data-auto-animate>
 <table data-id="tabM" class="intable">
   <tr>
     <td>alice</td>
@@ -749,22 +768,20 @@ function f() {
     <td>bob</td>
     <td>account</td>
     <td>bob:account</td>
-  <tr>
+  <tr style="color:chartreuse">
     <td>alice:account</td>
     <td>balance</td>
-	<td></td>
 	<td>10</td>
   </tr>
-  <tr>
+  <tr style="color:chartreuse">
     <td>bob:account</td>
     <td>balance</td>
-	<td></td>
 	<td>20</td>
   </tr>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2-4" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	alice.account.balance = 10;
 	bob.account.balance = 20;
 	Account memory acc = bob.account;
@@ -808,7 +825,7 @@ function f(Person memory alice, Person memory bob) {
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	alice.account = bob.account;
 	assert(acc.balance == 20);
 
@@ -845,7 +862,7 @@ function f(Person memory alice, Person memory bob) {
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	assert(acc.balance == 20);
 
 	acc.balance = 30;
@@ -881,7 +898,7 @@ function f(Person memory alice, Person memory bob) {
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	acc.balance = 30;
 	assert(alice.account.balance == 30);
 	assert(bob.account.balance   == 30);
@@ -913,7 +930,7 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	assert(alice.account.balance == 30);
 	assert(bob.account.balance   == 30);
 }
@@ -921,7 +938,7 @@ function f(Person memory alice, Person memory bob) {
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:orange"> aacc $\leftarrow$ bob:account </h5>
+	<h5 style="color:orange"> $\text{a}_1 \leftarrow$ bob:account </h5>
 	<table data-id="tabM" class="intable">
 		<tr style="color:chartreuse">
 		  <td>alice</td>
@@ -945,16 +962,16 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
-	Account memory aAcc = alice.account;
-	assert(aAcc.balance == 30);
+function f() {
+	Account memory a1 = alice.account;
+	assert(a1.balance == 30);
 	assert(bob.account.balance   == 30);
 }
 	</code></pre>
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:chartreuse" class="katex"> aAcc $\leftarrow$ <span style="color:orange">bob:account</span> </h5>
+	<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ <span style="color:orange">bob:account</span> </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
@@ -978,8 +995,8 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
-	assert(aAcc.balance == 30);
+function f() {
+	assert(a1.balance == 30);
 	assert(bob.account.balance   == 30);
 }
 	</code></pre>
@@ -1009,14 +1026,14 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
-function f(Person memory alice, Person memory bob) {
+function f() {
 	assert(bob.account.balance   == 30);
 }
 	</code></pre>
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:chartreuse"> bAcc $\leftarrow$ bob:account </h5>
+	<h5 style="color:chartreuse"> $b_1 \leftarrow$ bob:account </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
@@ -1040,15 +1057,15 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f(Person memory alice, Person memory bob) {
-	Account memory bAcc = bob.account;
-	assert(bAcc.balance   == 30);
+function f() {
+	Account memory b1 = bob.account;
+	assert(b1.balance   == 30);
 }
 	</code></pre>
 </section>
 
 <section data-auto-animate>
-	<h5 style="color:chartreuse" class="katex"> bAcc $\leftarrow$ <span style="color:orange">bob:account</span> </h5>
+	<h5 style="color:chartreuse" class="katex"> $b_1 \leftarrow$ <span style="color:orange">bob:account</span> </h5>
 	<table data-id="tabM" class="intable">
 		<tr>
 		  <td>alice</td>
@@ -1072,8 +1089,8 @@ function f(Person memory alice, Person memory bob) {
 		</tr>
 	  </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
-function f(Person memory alice, Person memory bob) {
-	assert(bAcc.balance   == 30);
+function f() {
+	assert(b1.balance   == 30);
 }
 	</code></pre>
 </section>
