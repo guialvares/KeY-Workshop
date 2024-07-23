@@ -7,7 +7,11 @@ KeY Symposium 2024
 
 
 ## Motivation
-- Solidity is used in the second-biggest cryptocurrency (Ethereum) <!-- .element: class="fragment fade-in-then-semi-out" -->
+- Solidity is used in the second-biggest cryptocurrency (Ethereum)
+- ![Bitcoin and Ethereum](Bitcoin_ethereum.jpg) <!-- .element: style="width: 650px;" -->
+
+
+## Motivation
 - Smart contracts are used for programming financial assets <!-- .element: class="fragment fade-in-then-semi-out" -->
 - There are adversary interests in smart contracts <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Code in the smart contracts domain can't be changed after deployment <!-- .element: class="fragment fade-in-then-semi-out" -->
