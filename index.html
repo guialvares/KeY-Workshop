@@ -659,9 +659,9 @@ function f() {
 <section data-auto-animate>
 	<h5 class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
 	<table data-id="tab" class="intable">
-	<tr style="color:chartreuse" data-id="aliceT">
-		<td>alice:account:balance</td>
-		<td>10</td>
+	<tr data-id="aliceT" style="color:chartreuse">
+		<td> alice </td>
+		<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
 	</tr>
 	</table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -683,13 +683,13 @@ function f() {
 <section data-auto-animate>
 	<h5 style="color: chartreuse;" class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr data-id="aliceT">
-    <td>alice:account:balance</td>
-    <td>10</td>
-  </tr>
-  <tr style="color:chartreuse">
-    <td>bob:account:balance</td>
-    <td>20</td>
+	<tr data-id="aliceT">
+		<td> alice </td>
+		<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
+	</tr>
+  <tr data-id="bobT" style="color:chartreuse">
+	<td> bob </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2-3" class="solidity">
@@ -710,13 +710,13 @@ function f() {
 <section data-auto-animate>
 	<h5 class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr>
-    <td>alice:account:balance</td>
-    <td>10</td>
+  <tr data-id="aliceT">
+	<td> alice </td>
+	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr>
-    <td>bob:account:balance</td>
-    <td>20</td>
+  <tr data-id="bobT" >
+	<td> bob </td>
+	<td> <table style="color:orange"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -734,14 +734,13 @@ function f() {
 <section data-auto-animate>
 	<h5 style="color:chartreuse" class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr style="color:chartreuse">
-    <td>alice:account</td>
-	<td>balance</td>
-    <td>10</td>
+  <tr data-id="aliceT">
+	<td> alice </td>
+	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr>
-    <td>bob:account:balance</td>
-    <td>20</td>
+  <tr data-id="bobT" >
+	<td> bob </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -758,15 +757,13 @@ function f() {
 <section data-auto-animate>
 	<h5 style="color:chartreuse" class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr style="color:chartreuse">
-    <td>alice:account</td>
-	<td>balance</td>
-    <td>20</td>
-    <td style="color: orange;">30</td>
+  <tr data-id="aliceT">
+	<td> alice </td>
+	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> <td style="color: orange;"> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr>
-    <td>bob:account:balance</td>
-    <td>20</td>
+  <tr data-id="bobT" >
+	<td> bob </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -781,14 +778,13 @@ function f() {
 <section data-auto-animate>
 	<h5 class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr style="color:chartreuse">
-    <td>alice:account</td>
-    <td>balance</td>
-    <td>30</td>
+  <tr data-id="aliceT">
+	<td> alice </td>
+	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr>
-    <td>bob:account:balance</td>
-    <td>20</td>
+  <tr data-id="bobT" >
+	<td> bob </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -802,14 +798,13 @@ function f() {
 <section data-auto-animate>
 	<h5 class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr>
-    <td>alice:account</td>
-    <td>balance</td>
-    <td>30</td>
+  <tr data-id="aliceT">
+	<td> alice </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr style="color:chartreuse">
-    <td>bob:account:balance</td>
-    <td>20</td>
+  <tr data-id="bobT" >
+	<td> bob </td>
+	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
