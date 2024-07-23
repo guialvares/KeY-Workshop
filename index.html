@@ -1176,6 +1176,18 @@ function f() {
 
 </section>
 
+<section>
+	<h3> Memory Rules </h3>
+	<section>
+		$ \text{read}(\text{write}(\text{mem}, \text{id}, s, v), \text{id}, s) \rightsquigarrow v $
+	</section>
+	<section> <div class="katex">
+		$$ \lnot (\text{idW} = \text{idR} \space \& \space \text{sW} = \text{sR})  \implies $$
+		$$ \text{read}(\text{write}(\text{mem}, \text{idW}, \text{sW}, v), \text{idR}, \text{sR}) $$
+		$$ \rightsquigarrow \text{read}(\text{mem}, \text{idR}, \text{sR}) $$
+	</div></section>
+</section>
+
 <section data-markdown="presentation-middle.md" 
 	data-separator="^\n\n"
 	data-separator-notes="^Note:"
