@@ -196,7 +196,6 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT" style="color:chartreuse">
 	<td> alice </td>
-	<!-- <td> <table data-id="bAcc" > <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td> -->
 	<td class="above"> 
 		<div><table data-id="bAcc"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table></div>
 		<div><table data-id="hidden" style="opacity: 0;"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
@@ -760,12 +759,15 @@ function f() {
 	<h5 class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
   <tr data-id="aliceT">
-	<td> alice </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
+	<td data-id="alice"> alice </td>
+	<td class="above"> 
+		<div><table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+		<div><table style="color:chartreuse" data-id="hidden" > <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+	</td>
   </tr>
   <tr data-id="bobT" >
-	<td> bob </td>
-	<td> <table style="color:orange"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
+	<td data-id="bob"> bob </td>
+	<td> <table data-id="bAcc" style="color:orange"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -783,12 +785,15 @@ function f() {
 <section data-auto-animate>
 	<h5 style="color:chartreuse" class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr data-id="aliceT">
-	<td> alice </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
+  <tr data-id="aliceT" style="color: chartreuse;">
+	<td data-id="alice"> alice </td>
+	<td class="above"> 
+		<div><table data-id="bAcc"> <tr> <td data-id="accAl"> account </td> <td> <table> <tr>  <td data-id="bal"> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table></div>
+		<div><table data-id="hidden" style="opacity: 0;"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+	</td>
   </tr>
   <tr data-id="bobT" >
-	<td> bob </td>
+	<td data-id="bob"> bob </td>
 	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
@@ -806,9 +811,9 @@ function f() {
 <section data-auto-animate>
 	<h5 style="color:chartreuse" class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr data-id="aliceT">
-	<td> alice </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> <td style="color: orange;"> 30 </td> </tr> </table> </td> </tr> </table> </td>
+  <tr data-id="aliceT" style="color:chartreuse">
+	<td data-id="alice"> alice </td>
+	<td> <table> <tr> <td data-id="accAl"> account </td> <td> <table> <tr>  <td data-id="bal"> balance </td> <td> 20 </td> <td data-id="td30" style="color: orange;"> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT" >
 	<td> bob </td>
@@ -827,9 +832,9 @@ function f() {
 <section data-auto-animate>
 	<h5 class="katex"> acc $\leftarrow$ alice:account </h5>
 <table data-id="tab" class="intable">
-  <tr data-id="aliceT">
-	<td> alice </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
+  <tr data-id="aliceT" style="color:chartreuse">
+	<td data-id="alice"> alice </td>
+	<td> <table> <tr> <td data-id="accAl"> account </td> <td> <table> <tr>  <td data-id="bal"> balance </td> <td data-id="td30"> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT" >
 	<td> bob </td>
@@ -851,9 +856,9 @@ function f() {
 	<td> alice </td>
 	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
-  <tr data-id="bobT" >
+  <tr style="color:chartreuse" data-id="bobT" >
 	<td> bob </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
