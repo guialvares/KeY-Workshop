@@ -20,6 +20,19 @@
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   text-transform: none;
 }
+.above {
+position: relative;
+div {
+	height: 95px;
+}
+
+div:nth-child(1) {
+	position: absolute;
+	height: 95px;
+}
+
+}
+
 </style>
 
 	</head>
@@ -158,11 +171,14 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT">
 	<td> alice </td>
-	<td> <table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
+	<td class="above"> 
+		<div><table style="color:chartreuse"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+		<div><table style="color:chartreuse" data-id="hidden" > <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+	</td>
   </tr>
   <tr data-id="bobT" >
 	<td> bob </td>
-	<td> <table style="color:orange"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table data-id="bAcc" style="color:orange"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2" class="solidity">
@@ -180,7 +196,11 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT" style="color:chartreuse">
 	<td> alice </td>
-	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
+	<!-- <td> <table data-id="bAcc" > <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table> </td> -->
+	<td class="above"> 
+		<div><table data-id="bAcc"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> </tr> </table> </td> </tr> </table></div>
+		<div><table data-id="hidden" style="opacity: 0;"> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table></div>
+	</td>
   </tr>
   <tr data-id="bobT">
 	<td> bob </td>
@@ -201,7 +221,7 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT" style="color:chartreuse">
 	<td> alice </td>
-	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT">
 	<td> bob </td>
@@ -220,7 +240,7 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT">
 	<td> alice </td>
-	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 10 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT" style="color:chartreuse">
 	<td> bob </td>
