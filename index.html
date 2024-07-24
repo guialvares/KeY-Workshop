@@ -221,7 +221,7 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT" style="color:chartreuse">
 	<td> alice </td>
-	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 20 </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td data-id="bal"> balance </td> <td> 20 </td> <td data-id="td30"> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT">
 	<td> bob </td>
@@ -240,7 +240,7 @@ function f() {
 <table data-id="tab" class="intable">
   <tr data-id="aliceT">
 	<td> alice </td>
-	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td> balance </td> <td> 30 </td> </tr> </table> </td> </tr> </table> </td>
+	<td> <table> <tr> <td> account </td> <td> <table> <tr>  <td data-id="bal"> balance </td> <td data-id="td30"> 30 </td> </tr> </table> </td> </tr> </table> </td>
   </tr>
   <tr data-id="bobT" style="color:chartreuse">
 	<td> bob </td>
@@ -333,7 +333,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-	<h5 class="katex"> $\text{a}_1 \leftarrow$ alice:account </h5>
+	<h5 class="katex"> $\text{a}_1 \leftarrow$ <span style="color: orange;"> alice:account </span> </h5>
 <table data-id="tab" class="intable">
 <tr data-id="aliceAcc">
 	<td>alice</td>
@@ -346,7 +346,7 @@ function f() {
 	<td>bob:account</td>
 </tr>
 <tr style="color:chartreuse" data-id="aliceT">
-	<td>alice:account</td>
+	<td style="color: orange;">alice:account</td>
 	<td>balance</td>
 	<td>10</td>
 </tr>
@@ -504,7 +504,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ bob:account </h5>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_1 \leftarrow$ <span style="color: orange;"> bob:account </span> </h5>
 <table data-id="tab" class="intable">
 <tr data-id="aliceAcc">
 	<td>alice</td>
@@ -522,7 +522,7 @@ function f() {
 	<td>10</td>
 </tr>
 <tr style="color:chartreuse"  data-id="bobT">
-	<td>bob:account</td>
+	<td style="color: orange;">bob:account</td>
 	<td>balance</td>
 	<td>20</td>
 </tr>
@@ -602,7 +602,7 @@ function f() {
 </section>
 
 <section data-auto-animate>
-<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ bob:account </h5>
+<h5 style="color:chartreuse" class="katex"> $\text{a}_2 \leftarrow$ <span style="color: orange;"> bob:account </span> </h5>
 <table data-id="tab" class="intable">
 <tr data-id="aliceAcc">
 	<td>alice</td>
@@ -621,10 +621,10 @@ function f() {
 	<td>10</td>
 </tr>
 <tr style="color:chartreuse" data-id="bobT">
-	<td>bob:account</td>
+	<td style="color: orange;">bob:account</td>
 	<td>balance</td>
 	<td>20</td>
-	<td>30</td>
+	<td data-id="td30">30</td>
 </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
@@ -655,7 +655,7 @@ function f() {
 <tr style="color:chartreuse" data-id="bobT">
 	<td>bob:account</td>
 	<td>balance</td>
-	<td>30</td>
+	<td data-id="td30">30</td>
 </tr>
 </table>
 	<pre data-id="code-animation"><code data-trim data-line-numbers="2,3" class="solidity">
