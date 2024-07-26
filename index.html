@@ -1240,24 +1240,6 @@ function f() {
 
 </section>
 
-<!-- Show the difference between shallow and deep copy in the same slide -->
-<section>
-	<h3> Memory Rules </h3>
-	<section>
-		$ \text{read}(\text{write}(\text{mem}, \text{id}, s, v), \text{id}, s) \rightsquigarrow v $
-	</section>
-	<section> <div class="katex">
-		$$ \lnot (\text{idW} = \text{idR} \space \land \space \text{sW} = \text{sR})  \implies $$
-		$$ \text{read}(\text{write}(\text{mem}, \text{idW}, \text{sW}, v), \text{idR}, \text{sR}) $$
-		$$ \rightsquigarrow \text{read}(\text{mem}, \text{idR}, \text{sR}) $$
-	</div></section>
-</section>
-
-<section>
-	<h3> Storage Rules </h3>
-	<p> $ \text{select}(\text{store}(\text{storage}, p, v), p, v) \rightsquigarrow v $ </p>
-</section>
-
 <section data-markdown="presentation-middle.md" 
 	data-separator="^\n\n"
 	data-separator-notes="^Note:"
