@@ -10,6 +10,7 @@ KeY Symposium 2024
 
 ## Motivation
 - Solidity is used in the second-biggest cryptocurrency (Ethereum) <!-- .element: class="fragment fade-in-then-semi-out" -->
+<img style="position: absolute; right: 0px; top: 80px" src="ethereum.webp" width="100" data-fragment-index="1" />
 - Used for programming financial assets <!-- .element: class="fragment fade-in-then-semi-out" -->
 - There are adversary interests in smart contracts <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Code in the smart contracts domain can't be changed after deployment <!-- .element: class="fragment fade-in-then-semi-out" -->
