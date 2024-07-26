@@ -1,6 +1,8 @@
 ### Modeling Solidity data types in SolidiKeY
 Guilherme Horta Alvares da Silva
 
+alvares@chalmers.se
+
 Chalmers University
 
 KeY Symposium 2024
