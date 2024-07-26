@@ -1,8 +1,8 @@
 ## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
 $$
 \begin{align*}
-  \text{newMemory} &\leftarrow \text{alice} , \text{account}, \textcolor{chartreuse}{\text{alice:account}}  \newline
-                   &\leftarrow \text{bob} , \text{account}, \textcolor{chartreuse}{\text{bob:account}} \newline
+  \text{newMemory} &\leftarrow \text{alice}, \text{account}, \textcolor{chartreuse}{\text{alice:account}}  \newline
+                   &\leftarrow \text{bob}, \text{account}, \textcolor{chartreuse}{\text{bob:account}} \newline
                    &\leftarrow \text{alice:account}, \text{balance}, \textcolor{chartreuse}{10}  \newline
                    &\leftarrow \text{bob:account}, \text{balance}, \textcolor{chartreuse}{20}  \newline
 \end{align*}
@@ -30,10 +30,10 @@ function f(){
 ## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
 $$
 \begin{align*}
-  \text{newMemory} &\leftarrow (\text{alice} , \text{account}), \textcolor{chartreuse}{\text{bob:account}}  \newline
-                   &\leftarrow (\text{bob} , \text{account}), \textcolor{chartreuse}{\text{bob:account}} \newline
-                   &\leftarrow (\text{alice:account}, \text{balance}), \textcolor{chartreuse}{10}  \newline
-                   &\leftarrow (\text{bob:account}, \text{balance}), \textcolor{chartreuse}{20}  \newline
+  \text{newMemory} &\leftarrow \text{alice}, \text{account}, \textcolor{chartreuse}{\text{bob:account}}  \newline
+                   &\leftarrow \text{bob}, \text{account}, \textcolor{chartreuse}{\text{bob:account}} \newline
+                   &\leftarrow \text{alice:account}, \text{balance}, \textcolor{chartreuse}{10}  \newline
+                   &\leftarrow \text{bob:account}, \text{balance}, \textcolor{chartreuse}{20}  \newline
 \end{align*}
 $$ <!-- .element: style="font-size: 35px;" class="fragment fade-in" -->
 
