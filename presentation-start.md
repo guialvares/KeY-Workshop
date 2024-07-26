@@ -19,4 +19,8 @@ KeY Symposium 2024
 - Study a relationship between asset flow and internal contract data <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Build a calculus that axiomatizes Solidity <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Build a proof system that automates verification, SolidiKeY, which is developed on top of the KeY infrastructure <!-- .element: class="fragment fade-in" -->
-<!-- Explain the difference between storage and memory -->
+
+
+## Storage vs Memory
+- Storage variables are fields in the contract that persist in the blockchain <!-- .element: class="fragment fade-in-then-semi-out" -->
+- Memory is volatile and persists just inside a function <!-- .element: class="fragment fade-in" -->
