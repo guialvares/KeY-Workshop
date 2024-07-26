@@ -1,3 +1,51 @@
+## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
+$$
+\begin{align*}
+  \text{newMemory} &\leftarrow (\text{alice} , \text{account}), \textcolor{chartreuse}{\text{alice:account}}  \newline
+                   &\leftarrow (\text{bob} , \text{account}), \textcolor{chartreuse}{\text{bob:account}} \newline
+                   &\leftarrow (\text{alice:account}, \text{balance}), \textcolor{chartreuse}{10}  \newline
+                   &\leftarrow (\text{bob:account}, \text{balance}), \textcolor{chartreuse}{20}  \newline
+\end{align*}
+$$ <!-- .element: style="font-size: 35px;" class="fragment fade-in" -->
+
+## Storage <!-- .element: style="font-size: 40px; color:aqua" class="fragment fade-in" -->
+$$
+\begin{align*}
+  \text{newStorage} &\leftarrow (\text{alice} &\leftarrow (\text{account} \leftarrow (\text{balance} \leftarrow \textcolor{chartreuse}{10})))  \newline
+                   &\leftarrow (\text{bob} &\leftarrow (\text{account} \leftarrow (\text{balance} \leftarrow \textcolor{chartreuse}{20})))
+\end{align*}
+$$ <!-- .element: style="font-size: 35px;" class="fragment fade-in" -->
+
+
+## After running
+```solidity
+function f(){
+    ...
+    alice.account = bob.account;
+    ...
+}
+```
+
+
+## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
+$$
+\begin{align*}
+  \text{newMemory} &\leftarrow (\text{alice} , \text{account}), \textcolor{chartreuse}{\text{bob:account}}  \newline
+                   &\leftarrow (\text{bob} , \text{account}), \textcolor{chartreuse}{\text{bob:account}} \newline
+                   &\leftarrow (\text{alice:account}, \text{balance}), \textcolor{chartreuse}{10}  \newline
+                   &\leftarrow (\text{bob:account}, \text{balance}), \textcolor{chartreuse}{20}  \newline
+\end{align*}
+$$ <!-- .element: style="font-size: 35px;" class="fragment fade-in" -->
+
+## Storage <!-- .element: style="font-size: 40px; color:aqua" class="fragment fade-in" -->
+$$
+\begin{align*}
+  \text{newStorage} &\leftarrow (\text{alice} &\leftarrow (\text{account} \leftarrow (\text{balance} \leftarrow \textcolor{chartreuse}{20})))  \newline
+                   &\leftarrow (\text{bob} &\leftarrow (\text{account} \leftarrow (\text{balance} \leftarrow \textcolor{chartreuse}{20})))
+\end{align*}
+$$ <!-- .element: style="font-size: 35px;" class="fragment fade-in" -->
+
+
 ## Defaults
 - Different from Java, Solidity has no nulls <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Each variable is initialized with default values <!-- .element: class="fragment fade-in-then-semi-out" -->
