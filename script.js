@@ -11,6 +11,7 @@ Reveal.initialize({
     katex: {
         local: 'node_modules/katex',
     },
+    slideNumber: true,
 
     // Learn about plugins: https://revealjs.com/plugins/
     plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
