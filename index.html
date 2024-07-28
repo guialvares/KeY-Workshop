@@ -95,6 +95,8 @@ contract PersonAccount {
     struct Person {
         Account account;
     }
+    Person alice;
+    Person bob;
 }
 	</code></pre>
 </section>
@@ -1257,6 +1259,9 @@ contract PersonStorage {
     struct Person {
         Account account;
     }
+
+    Person alice;
+    Person bob;
 
     function f() {
         assert(alice.account.balance == 0);
