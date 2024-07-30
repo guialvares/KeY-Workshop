@@ -1,15 +1,15 @@
-## Memory 
-write : Struct $ \rightarrow $ Identity $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct
+## Memory <!-- .element: style="color:aqua" -->
+write : Struct $ \rightarrow $ Identity $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct <!-- .element: class="fragment fade-in" -->
 
-## Storage
-store : Struct $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct
+## Storage <!-- .element: style="color:aqua" class="fragment fade-in" -->
+store : Struct $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct <!-- .element: class="fragment fade-in" -->
 
 
-## Memory
-write(write(newMemory, alice, account, alice:account), bob, account, bob:account)
+## Memory <!-- .element: style="color:aqua" -->
+write(write(newMemory, alice, account, alice:account), bob, account, bob:account) <!-- .element: class="fragment fade-in" -->
 
-## Storage
-store(newStorage, alice, store(newStorage, account, store(newStorage, balance, 10)))
+## Storage <!-- .element: style="color:aqua;" class="fragment fade-in" -->
+store(newStorage, alice, store(newStorage, account, store(newStorage, balance, 10))) <!-- .element: class="fragment fade-in" -->
 
 
 ## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
