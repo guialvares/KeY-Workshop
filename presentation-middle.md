@@ -1,3 +1,17 @@
+## Memory 
+write : Struct $ \rightarrow $ Identity $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct
+
+## Storage
+store : Struct $ \rightarrow $ Field $ \rightarrow $ Value $ \rightarrow $ Struct
+
+
+## Memory
+write(write(newMemory, alice, account, alice:account), bob, account, bob:account)
+
+## Storage
+store(newStorage, alice, store(newStorage, account, store(newStorage, balance, 10)))
+
+
 ## Memory <!-- .element: style="font-size: 40px; color:aqua" -->
 $$
 \begin{align*}
