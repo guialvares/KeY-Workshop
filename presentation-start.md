@@ -25,5 +25,17 @@ KeY Symposium 2024
 
 
 ## Storage vs Memory
+```solidity
+contract Contract {
+    int vStorage;
+
+    function f(){
+        int vMemory;
+    }
+}
+```
+
+
+## Storage vs Memory
 - Storage variables are fields in the contract that persist in the blockchain <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Memory is volatile and persists just inside a function <!-- .element: class="fragment fade-in" -->
